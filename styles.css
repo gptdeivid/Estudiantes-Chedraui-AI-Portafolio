@@ -1,0 +1,166 @@
+/* styles.css */
+/* Paleta minimalista: navy suave, verde grisáceo, grises neutros */
+:root{
+  --bg: #f7f8fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #1f4661;   /* navy suave */
+  --accent-2: #3b8b88; /* verde grisáceo */
+  --glass: rgba(255,255,255,0.6);
+  --shadow: 0 6px 18px rgba(18,24,35,0.06);
+  --radius: 12px;
+  --max-width: 1100px;
+  --gap: 20px;
+  --text: #0f1724;
+}
+
+/* Dark theme variables (toggle) */
+:root[data-theme="dark"]{
+  --bg: #0b1220;
+  --card: #071021;
+  --muted: #94a3b8;
+  --accent: #7ec8d3;
+  --accent-2: #5bd0b1;
+  --glass: rgba(255,255,255,0.03);
+  --shadow: 0 8px 26px rgba(2,6,23,0.6);
+  --text: #e6eef6;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:linear-gradient(180deg,var(--bg), #ffffff 60%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
+
+/* Layout container */
+.container{
+  width:calc(100% - 32px);
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:24px 16px;
+}
+
+/* Header */
+.site-header{
+  position:sticky;
+  top:0;
+  backdrop-filter: blur(6px);
+  background:var(--glass);
+  border-bottom:1px solid rgba(0,0,0,0.03);
+  z-index:50;
+}
+.header-grid{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand h1{margin:0;font-size:1.1rem;letter-spacing:0.2px}
+.subtitle{margin:2px 0 0;font-size:.86rem;color:var(--muted)}
+
+/* Buttons */
+.btn{
+  border:1px solid transparent;
+  padding:8px 12px;
+  font-weight:600;
+  border-radius:10px;
+  cursor:pointer;
+  background:transparent;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn.primary{
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:white;
+  box-shadow:var(--shadow);
+  border: none;
+}
+.btn.ghost{
+  background:transparent;
+  color:var(--accent);
+  border:1px solid rgba(31,70,97,0.08);
+}
+
+/* Main grid */
+.main-grid{
+  display:grid;
+  grid-template-columns: 1fr 380px;
+  gap:var(--gap);
+  align-items:start;
+  margin-top:28px;
+}
+
+/* Profile card */
+.profile-card{
+  display:flex;
+  gap:20px;
+  padding:22px;
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  align-items:flex-start;
+}
+.avatar-wrap{flex:0 0 140px}
+.avatar{
+  width:140px;height:140px;border-radius:14px;object-fit:cover;display:block;
+  border:6px solid rgba(255,255,255,0.04);
+  box-shadow: 0 8px 20px rgba(31,46,62,0.06);
+}
+.profile-content h2{margin:0 0 8px}
+.lead{color:var(--muted);margin-top:6px}
+
+/* Meta list */
+.meta-list{list-style:none;padding:0;margin:12px 0 0;color:var(--muted)}
+.meta-list li{margin:6px 0;font-size:.95rem}
+
+/* Skills */
+.skills{margin-top:14px}
+.skill{margin-bottom:12px}
+.skill label{display:block;font-weight:600;margin-bottom:6px;font-size:.92rem}
+.progress{
+  height:10px;background:linear-gradient(90deg, rgba(31,70,97,0.06), rgba(31,70,97,0.03));
+  border-radius:999px;overflow:hidden;
+}
+.progress span{
+  display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  border-radius:999px;transition:width 900ms cubic-bezier(.2,.9,.2,1);
+}
+
+/* Projects */
+.projects .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:14px}
+.card{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+.card img{width:100%;height:140px;object-fit:cover;display:block}
+.card-body{padding:12px}
+.card-body h4{margin:0 0 6px}
+.card-tags{margin-top:8px}
+.card-tags span{display:inline-block;background:rgba(31,70,97,0.06);padding:6px 8px;border-radius:8px;margin-right:6px;font-size:.82rem;color:var(--muted)}
+
+/* Contact aside */
+.contact-card{
+  padding:20px;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
+  position:sticky;top:88px;
+}
+.contact-card form{display:flex;flex-direction:column;gap:10px}
+.contact-card input, .contact-card textarea{
+  padding:10px;border-radius:10px;border:1px solid rgba(15,23,36,0.06);background:transparent;outline:none;color:var(--text)
+}
+.form-actions{display:flex;gap:10px;margin-top:6px}
+.muted{color:var(--muted)}
+.small{font-size:.82rem}
+
+/* Footer */
+.site-footer{margin-top:28px;padding:16px 0}
+.footer-grid{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.92rem}
+
+/* Responsive */
+@media (max-width:980px){
+  .main-grid{grid-template-columns: 1fr; }
+  .projects .cards{grid-template-columns:1fr}
+  .header-actions{display:flex;gap:8px}
+  .avatar{width:120px;height:120px}
+  .avatar-wrap{flex:0 0 120px}
+}
+
+/* Small utilities */
+.text-center{text-align:center}
+.hidden{display:none}

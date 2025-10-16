@@ -1,0 +1,118 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ing. Suriel Carrasco — Transformación Digital & Programación</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-grid">
+      <div class="brand">
+        <h1>Ing. Suriel Carrasco</h1>
+        <p class="subtitle">Especialista en Transformación Digital & Programación</p>
+      </div>
+      <div class="header-actions">
+        <button id="themeToggle" class="btn ghost" aria-pressed="false">Modo oscuro</button>
+        <button id="downloadCv" class="btn primary">Descargar CV</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-grid" id="main">
+    <section class="profile-card" aria-labelledby="perfilTitle">
+      <div class="avatar-wrap">
+        <img src="usuario.jpg" alt="Foto genérica de perfil" class="avatar" />
+      </div>
+      <div class="profile-content">
+        <h2 id="perfilTitle">Sobre mí</h2>
+        <p class="lead">
+          Estudiante de preparatoria apasionado por la tecnología, la programación y la transformación digital.
+          Experiencia en proyectos escolares con HTML, CSS y JavaScript; interesado en automatizar procesos y crear soluciones prácticas.
+        </p>
+
+        <ul class="meta-list">
+          <li><strong>Ubicación:</strong> Ciudad de México</li>
+          <li><strong>Disponibilidad:</strong> Proyectos escolares / prácticas</li>
+          <li><strong>Email:</strong> suriel.carrasco@example.com</li>
+        </ul>
+
+        <div class="skills">
+          <h3>Habilidades</h3>
+          <div class="skill">
+            <label>HTML &amp; CSS</label>
+            <div class="progress" data-value="90"><span></span></div>
+          </div>
+          <div class="skill">
+            <label>JavaScript</label>
+            <div class="progress" data-value="75"><span></span></div>
+          </div>
+          <div class="skill">
+            <label>Transformación Digital (conceptos)</label>
+            <div class="progress" data-value="70"><span></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects" aria-labelledby="proyectosTitle">
+      <h2 id="proyectosTitle">Proyectos destacados</h2>
+
+      <div class="cards">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=60&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Proyecto web genérico" />
+          <div class="card-body">
+            <h4>Landing de servicios</h4>
+            <p>Landing page para una pequeña empresa, enfocada en UX minimalista y formulario de contacto.</p>
+            <div class="card-tags"><span>#HTML</span><span>#CSS</span><span>#Accesibilidad</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=1200&q=60&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Proyecto de automatización genérico" />
+          <div class="card-body">
+            <h4>Automatización escolar</h4>
+            <p>Script que automatiza la generación de reportes para el equipo de un proyecto escolar.</p>
+            <div class="card-tags"><span>#JS</span><span>#Automatización</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <aside class="contact-card" aria-labelledby="contactoTitle">
+      <h2 id="contactoTitle">Contacto</h2>
+      <p>¿Quieres colaborar o preguntar por prácticas? Envía un mensaje:</p>
+
+      <form id="contactForm" onsubmit="return handleContact(event)">
+        <label for="name">Nombre</label>
+        <input id="name" name="name" type="text" required />
+
+        <label for="email">Correo</label>
+        <input id="email" name="email" type="email" required />
+
+        <label for="message">Mensaje</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Enviar (simulado)</button>
+          <button type="reset" class="btn ghost">Limpiar</button>
+        </div>
+
+        <p class="muted small">El formulario es demostrativo — no envía datos a un servidor.</p>
+      </form>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p>© <span id="year"></span> Ing. Suriel Carrasco — Transformación Digital</p>
+      <p class="muted">Diseño minimalista • Hecho con HTML, CSS &amp; JS</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
