@@ -11,8 +11,8 @@
   <header class="site-header">
     <div class="container header-grid">
       <div class="brand">
-        <h1>Ing. Suriel Carrasco</h1>
-        <p class="subtitle">Especialista en Transformación Digital & Programación</p>
+        <h1>David Cuellar Rueda</h1>
+        <p class="subtitle">Estudiante y futuro Ingeniero en Inteligencia Artificial</p>
       </div>
       <div class="header-actions">
         <button id="themeToggle" class="btn ghost" aria-pressed="false">Modo oscuro</button>
@@ -23,20 +23,18 @@
 
   <main class="container main-grid" id="main">
     <section class="profile-card" aria-labelledby="perfilTitle">
-      <div class="avatar-wrap">
-  <img src="img/usuario.jpg" alt="Foto genérica de perfil" class="avatar" />
-      </div>
+    <!-- Imagen de perfil eliminada -->
       <div class="profile-content">
         <h2 id="perfilTitle">Sobre mí</h2>
         <p class="lead">
-          Estudiante de preparatoria apasionado por la tecnología, la programación y la transformación digital.
-          Experiencia en proyectos escolares con HTML, CSS y JavaScript; interesado en automatizar procesos y crear soluciones prácticas.
+          Soy David Cuellar Rueda, estudiante de preparatoria con pasión por la Inteligencia Artificial y la tecnología. Me gusta aprender sobre algoritmos, programación y cómo la IA puede transformar el mundo.
+          Tengo experiencia en proyectos escolares usando HTML, CSS y JavaScript, y estoy enfocado en desarrollar soluciones creativas que utilicen automatización y análisis de datos.
         </p>
 
         <ul class="meta-list">
           <li><strong>Ubicación:</strong> Ciudad de México</li>
           <li><strong>Disponibilidad:</strong> Proyectos escolares / prácticas</li>
-          <li><strong>Email:</strong> suriel.carrasco@example.com</li>
+          <li><strong>Email:</strong> david.cuellar@example.com</li>
         </ul>
 
         <div class="skills">
@@ -47,11 +45,15 @@
           </div>
           <div class="skill">
             <label>JavaScript</label>
-            <div class="progress" data-value="75"><span></span></div>
+            <div class="progress" data-value="80"><span></span></div>
           </div>
           <div class="skill">
-            <label>Transformación Digital (conceptos)</label>
+            <label>Inteligencia Artificial (conceptos)</label>
             <div class="progress" data-value="70"><span></span></div>
+          </div>
+          <div class="skill">
+            <label>Análisis de Datos</label>
+            <div class="progress" data-value="65"><span></span></div>
           </div>
         </div>
       </div>
@@ -59,23 +61,39 @@
 
     <section class="projects" aria-labelledby="proyectosTitle">
       <h2 id="proyectosTitle">Proyectos destacados</h2>
-
-      <div class="cards">
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=60&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Proyecto web genérico" />
+      <div class="project-filters">
+        <button class="btn filter-btn" data-filter="Todos">Todos</button>
+        <button class="btn filter-btn" data-filter="HTML">HTML</button>
+        <button class="btn filter-btn" data-filter="CSS">CSS</button>
+        <button class="btn filter-btn" data-filter="JavaScript">JavaScript</button>
+      </div>
+      <div class="cards" id="projectCards">
+        <article class="card" data-tags="HTML,CSS">
           <div class="card-body">
             <h4>Landing de servicios</h4>
             <p>Landing page para una pequeña empresa, enfocada en UX minimalista y formulario de contacto.</p>
-            <div class="card-tags"><span>#HTML</span><span>#CSS</span><span>#Accesibilidad</span></div>
+            <div class="card-tags"><span>#HTML</span><span>#CSS</span></div>
           </div>
         </article>
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=1200&q=60&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Proyecto de automatización genérico" />
+        <article class="card" data-tags="JavaScript">
           <div class="card-body">
             <h4>Automatización escolar</h4>
             <p>Script que automatiza la generación de reportes para el equipo de un proyecto escolar.</p>
-            <div class="card-tags"><span>#JS</span><span>#Automatización</span></div>
+            <div class="card-tags"><span>#JavaScript</span></div>
+          </div>
+        </article>
+        <article class="card" data-tags="HTML,CSS,JavaScript">
+          <div class="card-body">
+            <h4>Portafolio interactivo</h4>
+            <p>Portafolio personal con animaciones y diseño responsivo.</p>
+            <div class="card-tags"><span>#HTML</span><span>#CSS</span><span>#JavaScript</span></div>
+          </div>
+        </article>
+        <article class="card" data-tags="CSS">
+          <div class="card-body">
+            <h4>Animaciones con CSS</h4>
+            <p>Ejemplos de animaciones y transiciones usando solo CSS.</p>
+            <div class="card-tags"><span>#CSS</span></div>
           </div>
         </article>
       </div>
@@ -113,6 +131,24 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    // Filtrado de proyectos
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const filter = this.getAttribute('data-filter');
+        document.querySelectorAll('#projectCards .card').forEach(card => {
+          const tags = card.getAttribute('data-tags').split(',');
+          if (filter === 'Todos' || tags.includes(filter)) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
 
